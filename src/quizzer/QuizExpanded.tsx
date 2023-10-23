@@ -54,10 +54,9 @@ export const QuizExpanded = ({
     };
 
     const editQuestionSub = (questionId: number, sub: string) => {
-        // I KNOW THIS IS WRONG
         editQuiz(quiz.id, {
             ...quiz,
-            questionList: quiz.questionList.map((question: Question, index: number, questionArr: Question[]): Question => (question.id === questionId) ? question : question)
+            questionList: quiz.questionList.map((question: Question): Question => (question.id === questionId) ? {...question, submission: sub}: question)
         });
     };
 
